@@ -1,9 +1,25 @@
-let alumnos = [];
+let alumnos =
+JSON.parse(
+localStorage.getItem("alumnos")
+) || [];
+
+mostrarLista();
+
+function guardarDatos(){
+
+localStorage.setItem(
+"alumnos",
+JSON.stringify(alumnos)
+);
+
+}
 
 function agregarAlumno(){
 
 let nombre =
-document.getElementById("nombreAlumno").value;
+document.getElementById(
+"nombreAlumno"
+).value;
 
 if(nombre==="") return;
 
@@ -12,6 +28,7 @@ nombre:nombre,
 asistencia:false
 });
 
+guardarDatos();
 mostrarLista();
 
 document.getElementById(
@@ -19,38 +36,41 @@ document.getElementById(
 ).value="";
 }
 
+function marcar(index){
+
+alumnos[index].asistencia=
+!alumnos[index].asistencia;
+
+guardarDatos();
+mostrarLista();
+}
+
 function mostrarLista(){
 
-let lista =
-document.getElementById("listaAlumnos");
+let lista=
+document.getElementById(
+"listaAlumnos"
+);
 
 lista.innerHTML="";
 
 alumnos.forEach((alumno,index)=>{
 
-let item=document.createElement("li");
+let item=
+document.createElement("li");
 
 item.innerHTML=
 `
 ${alumno.nombre}
 
 <button onclick="marcar(${index})">
-${alumno.asistencia ?
-"Presente" :
-"Ausente"}
+${alumno.asistencia
+? "Presente"
+: "Ausente"}
 </button>
 `;
 
 lista.appendChild(item);
 
 });
-}
-
-function marcar(index){
-
-alumnos[index].asistencia=
-!alumnos[index].asistencia;
-
-mostrarLista();
-
 }
