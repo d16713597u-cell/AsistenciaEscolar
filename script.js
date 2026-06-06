@@ -28,6 +28,7 @@ if(nombre==="") return;
 
 alumnos.push({
 nombre:nombre,
+seccion:document.getElementById("seccion").value,
 asistencia:false
 });
 
