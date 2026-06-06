@@ -31,7 +31,8 @@ nombre:nombre,
 seccion:document.getElementById("seccion").value,
 asistencia:false
 });
-
+${alumno.nombre}
+- Sección ${alumno.seccion}
 guardarDatos();
 mostrarLista();
 
