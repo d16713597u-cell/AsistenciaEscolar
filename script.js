@@ -1,3 +1,6 @@
+const fecha = new Date();
+document.getElementById("fechaActual").innerText =
+fecha.toLocaleDateString("es-PE");
 let alumnos =
 JSON.parse(
 localStorage.getItem("alumnos")
@@ -71,9 +74,6 @@ ${alumno.asistencia
 `;
 
 lista.appendChild(item);
-const fecha = new Date();
 
-document.getElementById("fechaActual").innerText =
-fecha.toLocaleDateString("es-PE");
 });
 }
