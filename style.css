@@ -1,0 +1,19 @@
+body{
+font-family: Arial;
+max-width:800px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+text-align:center;
+}
+
+button{
+padding:8px;
+margin:5px;
+}
+
+li{
+margin:10px;
+}
