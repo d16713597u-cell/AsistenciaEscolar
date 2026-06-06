@@ -78,4 +78,24 @@ ${alumno.asistencia
 lista.appendChild(item);
 
 });
+  function exportarExcel(){
+
+const hoja =
+XLSX.utils.json_to_sheet(alumnos);
+
+const libro =
+XLSX.utils.book_new();
+
+XLSX.utils.book_append_sheet(
+libro,
+hoja,
+"Asistencia"
+);
+
+XLSX.writeFile(
+libro,
+"Asistencia.xlsx"
+);
+
+}
 }
